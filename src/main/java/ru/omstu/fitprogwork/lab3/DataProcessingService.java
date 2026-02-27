@@ -21,9 +21,6 @@ public class DataProcessingService {
 
     public String process(ExtractionRequest request) {
         DataReader reader = extractors.get(request.type);
-        if (reader == null) {
-            return "Формат " + request.type + " не поддерживается";
-        }
         return reader.getValue(request.data, request.path);
     }
 }
