@@ -11,7 +11,6 @@ import java.util.Map;
 public class DataProcessingService {
     final Map<String, DataReader> extractors;
 
-    @Autowired
     public DataProcessingService(List<DataReader> extractorList) {
         this.extractors = new HashMap<>();
         for (DataReader reader : extractorList) {

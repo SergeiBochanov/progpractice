@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DataExtractorController {
     final DataProcessingService processingService;
 
-    @Autowired
     public DataExtractorController(DataProcessingService processingService) {
         this.processingService = processingService;
     }
