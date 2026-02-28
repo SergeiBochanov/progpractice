@@ -83,6 +83,7 @@ fabric.properties
 ### Intellij+all Patch ###
 
 .idea/
+.target/
 
 ### Java ###
 # Compiled class file
