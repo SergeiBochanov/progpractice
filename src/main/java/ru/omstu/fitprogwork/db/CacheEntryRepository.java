@@ -1,0 +1,27 @@
+package ru.omstu.fitprogwork.db;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+
+@Repository
+public interface CacheEntryRepository extends JpaRepository<CacheEntry, String> {
+
+    Optional<CacheEntry> findByKey(String key);
+
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM CacheEntry e WHERE e.createdAt < :threshold")
+    int deleteEntriesOlderThan(@Param("threshold") LocalDateTime threshold);
+
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM CacheEntry e")
+    int deleteAllEntries();
+}
