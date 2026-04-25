@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Repository
-public interface CacheEntryRepository extends JpaRepository<CacheEntry, Long> {
+public interface CacheEntryRepository extends JpaRepository<CacheEntry, String> {
 
     Optional<CacheEntry> findByKey(String key);
 
